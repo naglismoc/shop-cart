@@ -33,6 +33,15 @@
         .hidden {
             display: none;
         }
+        
+        .crossed-out {
+            text-decoration: line-through;
+            color: gray;
+        }
+        
+        .crossed-out>td>div {
+            background-color: grey;
+        }
     </style>
 </head>
 
@@ -57,10 +66,10 @@
                         <input id="category" class="form-control" placeholder="Daržovės, mėsa, švaros prekės ir tt.." value="rnd txt"></input>
                     </div>
 
-                    <input type="hidden" id="todo-id">
+                    <input type="hidden" id="id">
 
-                    <button id="submit-btn" onclick="addNewItem(); return false;" value="test" class="btn btn-primary">Įdėti prekę</button>
-                    <button id="edit-btn" onclick="editTodo(); return false;" style="display: none;" class="btn btn-outline-warning">Save Edit</button>
+                    <div id="submit-btn" onclick="addNewItem(); return false;" value="test" class="btn btn-primary">Įdėti prekę</div>
+                    <div id="edit-btn" onclick="editTodo(); return false;" style="display: none;" class="btn btn-outline-warning">Save Edit</div>
                     <div id="hide" class="btn btn-success">slėpti</div>
                 </form>
             </div>
@@ -96,7 +105,9 @@
                             <th scope="col">Prekės pavadinimas</th>
                             <th scope="col">Kiekis</th>
                             <th scope="col">Kategorija</th>
-                            <th scope="col">valdymas</th>
+                            <th scope="col">pirkti</th>
+                            <th scope="col">redaguoti</th>
+                            <th scope="col">trinti</th>
                         </tr>
                     </thead>
                     <tbody id="tasks-table">
