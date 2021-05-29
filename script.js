@@ -58,13 +58,18 @@ function addNewItem() {
     // }
 
     let items = JSON.parse(localStorage.getItem('cart'));
+    let category = document.getElementById("category").value;
+    let select2 = document.getElementById("select2").value;
+    if (select2 != 0) {
+        category = select2;
+    }
 
     console.log(document.getElementById("name").value);
     let item = {
         id: parseInt(localStorage.getItem("id")) + 1,
         name: document.getElementById("name").value,
         quantity: document.getElementById("quantity").value,
-        category: document.getElementById("category").value,
+        category: category,
         status: 0
     }
 
@@ -258,6 +263,7 @@ categorySelect();
 function categorySelect() {
     let shopingList = JSON.parse(localStorage.getItem('cart'));
     let select = document.getElementById("select");
+    let select2 = document.getElementById("select2");
     let categories = [];
     let HTML = "";
 
@@ -272,4 +278,5 @@ function categorySelect() {
     });
 
     select.innerHTML += HTML;
+    select2.innerHTML += HTML
 }
